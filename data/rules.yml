@@ -1,0 +1,68 @@
+version: "2.0"
+
+rules:
+
+# form for user id
+
+- rule: Activate user_id form
+  steps:
+  - intent: greet
+  - action: user_id_form
+  - active_loop: user_id_form
+
+- rule: Submit user_id form
+  condition:
+  - active_loop: user_id_form
+  steps:
+  - action: user_id_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  - action: action_submit_user_id 
+
+# form for pattern type
+
+
+- rule: Activate pattern_type form
+  steps:
+  - intent: order_pattern
+  - action: pattern_type_form
+  - active_loop: pattern_type_form
+
+- rule: Submit pattern_type form
+  condition:
+  - active_loop: pattern_type_form
+  steps:
+  - action: pattern_type_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  - action: action_submit_pattern_type 
+
+# form for update hsitory type
+
+- rule: Activate history_type form
+  steps:
+  - intent: order_history
+  - action: history_type_form
+  - active_loop: history_type_form
+
+- rule: Submit history_type form
+  condition:
+  - active_loop: history_type_form
+  steps:
+  - action: history_type_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  - action: action_submit_history_type 
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot

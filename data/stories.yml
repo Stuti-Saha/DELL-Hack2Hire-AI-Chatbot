@@ -1,0 +1,97 @@
+version: "2.0"
+
+stories:
+
+- story: success order path and update
+  steps:
+  - intent: enter_order_id
+    entities:
+      - order_id: "56778"
+  - slot_was_set:
+      - order_id: "56778"
+  - action: action_check_order_status
+  - intent: update_zipcode_choice
+  - action: utter_new_zipcode_choice
+  - intent: enter_zipcode
+    entities: 
+      - zipcode: "751003"
+  - slot_was_set: 
+      - zipcode: "751003"
+  - action: action_update_order_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: success order path email update
+  steps:
+  - intent: enter_order_id
+    entities:
+      - order_id: "56778"
+  - slot_was_set:
+      - order_id: "56778"
+  - action: action_check_order_status
+  - intent: update_email_choice
+  - action: utter_new_email_choice
+  - intent: enter_email
+    entities:
+      - email: "akaash@gmail.com"
+  - slot_was_set:
+      - email: "akaash@gmail.com"
+  - action: action_update_order_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: fail order path zip
+  steps:
+  - intent: enter_order_id
+    entities:
+      - order_id: "56778"
+  - slot_was_set:
+      - order_id: "56778"
+  - action: action_check_order_status
+  - intent: enter_zipcode
+    entities: 
+      - zipcode: "751003"
+  - slot_was_set: 
+      - zipcode: "751003"
+  - action: action_update_order_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: fail order path email
+  steps:
+  - intent: enter_order_id
+    entities:
+      - order_id: "56778"
+  - slot_was_set:
+      - order_id: "56778"
+  - action: action_check_order_status
+  - intent: enter_email
+    entities:
+      - email: "akaash@gmail.com"
+  - slot_was_set:
+      - email: "akaash@gmail.com"
+  - action: action_update_order_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: fail order path zip email
+  steps:
+  - intent: enter_order_id
+    entities:
+      - order_id: "56778"
+  - slot_was_set:
+      - order_id: "56778"
+  - action: action_check_order_status
+  - intent: enter_zipcode+enter_email
+    entities: 
+      - zipcode: "751003"
+      - email: "stuti@abcd.com"
+  - slot_was_set: 
+      - zipcode: "751003"
+  - slot_was_set:
+      - email: "stuti@abcd.com"    
+  - action: action_update_order_details
+  - intent: goodbye
+  - action: utter_goodbye
+

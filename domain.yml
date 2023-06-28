@@ -1,0 +1,117 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - enter_user_id
+  - enter_order_id
+  - check_order_status
+  - enter_zipcode
+  - enter_email
+  - update_zipcode_choice
+  - update_email_choice
+  - order_pattern
+  - order_history
+  - enter_email+enter_zipcode
+
+entities:
+- user_id
+- order_id
+- zipcode
+- email
+- pattern_type
+- history_type
+
+slots:
+  user_id:
+    type: text 
+    influence_conversation: true
+  order_id:
+    type: text
+    influence_conversation: true
+  zipcode:
+    type: text
+    influence_conversation: true  
+  error_code:
+    type: text
+    influence_conversation: true
+  error_name:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true  
+  pattern_type:
+    type: text
+    influence_conversation: true
+  history_type:
+    type: text
+    influence_conversation: true
+
+
+forms:
+  user_id_form: 
+    required_slots:
+      user_id:
+      - entity: user_id
+        type: from_text
+  
+  pattern_type_form:
+    required_slots:
+      pattern_type:
+      - entity: pattern_type
+        type: from_text
+  
+  history_type_form:
+    required_slots:
+      history_type:
+      - entity: history_type
+        type: from_text
+
+
+responses:
+  utter_ask_user_id:
+  - text: "Hey there! Welcome to Dell Assistant chatbot. Please enter your user id first to continue."
+
+  utter_ask_order_id:
+  - text: "Please enter your order id."
+
+  utter_ask_help_user:
+  - text: "Please enter your order id to proceed with your order."
+
+  utter_goodbye:
+  - text: "Thanks for contacting Dell Assistant. Have a great day!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_new_email_choice:
+  - text: "Please enter your new email."
+
+  utter_new_zipcode_choice:
+  - text: "Please enter your new zipcode."
+
+  utter_ask_help_admin:
+  - text: "What would you like to see, Order Update History or Order Details Pattern? "
+
+  utter_ask_pattern_type:
+  - text: "Which type of order details pattern would you like to see?\n1. Last one day.\n2. Last one week.\n3. Last one month."
+
+  utter_ask_history_type:
+  - text: "Which type of order update history would you like to see?\n1. Last one day.\n2. Last one week.\n3. Last one month."
+
+
+actions:
+- action_submit_user_id
+- action_check_order_status
+- action_update_order_details
+- utter_new_email_choice
+- utter_new_zipcode_choice
+- action_submit_pattern_type
+- action_submit_history_type
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

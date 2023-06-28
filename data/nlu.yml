@@ -1,0 +1,163 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - yes
+    - yes, I want to continue
+    - yes,ofcourse
+    - yes, ofc
+    - yes, for sure
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+- intent: check_order_status
+  examples: |
+    - i would like to check my order status
+    - i would like to check status of my order
+    - check order status
+    - order status
+    - i want to know status of my order
+    - i want to know order status
+    - i would want to know my order status
+    - know order status
+    - i would like to track my order
+    - i want to track my order
+    - track order
+
+- intent: enter_order_id
+  examples: |
+    - my orderid is [12345](order_id)
+    - my order id is [12345](order_id)
+    - [74683](order_id) is my orderid
+    - [95764](order_id) is my order id
+    - [67487](order_id)
+    - my orderid is [74683](order_id)
+    - [67487](order_id)
+    - my orderid is [45684](order_id)
+    - order id is [12345](order_id)
+    - the order id is [12345](order_id)
+    - [12345](order_id)
+    - it's order [12345](order_id)
+    - my order id is [12345](order_id)
+    - the order id is [12314](order_id)
+    - [09825](order_id)
+    - my order id is [13141](order_id)
+    - [41235](order_id)
+    - [20003](order_id)
+    - the order id is [20004](order_id)
+    - [20004](order_id)
+
+
+- intent: enter_zipcode
+  examples: |
+    - my new zipcode is [825408](zipcode)
+    - [825408](zipcode)
+    - my new zip code will be [825408](zipcode)
+    - update my zipcode to [825408](zipcode)
+    - please update my zipcode to [825408](zipcode)
+    - my new zipcode is [700039](zipcode)
+    - [700039](zipcode)
+    - my new zip code will be [700039](zipcode)
+    - update my zipcode to [700039](zipcode)
+
+
+- intent: enter_email
+  examples: |
+    - akaash@gmail.com
+    - stuti@yahoo.com
+    - b119006@iiit-bh.ac.in
+    - example342@test.com
+    - manavendra43@gmail.com
+    - email is akaashdeep91@gmail.com
+    - the new email is stutisaha420@gmail.com
+    - ma@gmail.com
+
+- intent: enter_email+enter_zipcode
+  examples: |
+    - my new zipcode is [825408](zipcode) and the new email is stutisaha420@gmal.com
+    - [825408](zipcode) and the new email is stutisaha420@gmal.com
+    - my new zip code will be [825408](zipcode) and the new email is stutisaha420@gmal.com
+    - update my zipcode to [825408](zipcode). email is akaashdeep91@gmail.com
+    - please update my zipcode to [825408](zipcode) and email to example342@test.com
+    - my new zipcode is [700039](zipcode) and the new email is stutisaha420@gmal.com
+    - [700039](zipcode). email is akaashdeep91@gmail.com
+    - my new zip code will be [700039](zipcode) and the new email is stutisaha420@gmal.com
+    - update my zipcode to [700039](zipcode). email is akaashdeep91@gmail.com
+
+- intent: update_zipcode_choice
+  examples: |
+    - i want to update my zipcode
+    - i entered a wrong zipcode in my order
+    - update zipcode
+    - please update my zipcode
+    - i want my zipcode to be updated
+    - i want my order to be delivered at new zipcode
+    - update adress
+    - update my address
+    - please update my address
+    - i want my address to be updated
+    - i want my order to be delivered at new address
+
+- intent: update_email_choice
+  examples: |
+    - i want to update my email
+    - i entered a wrong email in my order
+    - update email
+    - please update my email
+    - i want my email to be updated
+    - i want to get notified on another email address
+    - update my email
+    - i want to receive order updates on another email
+
+- intent: order_pattern
+  examples: |
+    - i want to see order pattern
+    - order pattern
+    - pettern of orders
+    - show me order patterns
+    - show pattern
+    - see order pattern
+    - i want to see pattern of orders
+
+- intent: order_history
+  examples: |
+    - i want to see order update details
+    - i want to see order update history
+    - order update history
+    - update history
+    - i want to see history of updated orders
+    - history of updates
+
